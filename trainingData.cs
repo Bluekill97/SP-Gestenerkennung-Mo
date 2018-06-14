@@ -65,8 +65,10 @@ public class trainingData {
         
         public class Gesture {
             private List<Point> _Points;
+            private int _gestureID = -1;
 
-            public Gesture() {
+            public Gesture(int gestureID) {
+                _gestureID = gestureID;
                 _Points = new List<Point>();
             }
 
@@ -76,6 +78,10 @@ public class trainingData {
 
             public List<Point> getPoints() {
                 return _Points;
+            }
+
+            public int getGestureID() {
+                return _gestureID;
             }
 
             public class Point {
@@ -112,6 +118,11 @@ public class trainingData {
                  } else {
                       Console.WriteLine("Couldn't create 3D Point for a 2D Shape");
                  }
+             }
+
+             new public String ToString() {
+                 String name = "Point ID=" + _pointID + ", x=" + _xPos + ", y=" + _yPos;
+                 return name;
              }
 
              public int ID => _pointID;
