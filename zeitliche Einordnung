@@ -1,0 +1,62 @@
+int frames = 30; //Nutzerabhängig
+int[] states = new int[100]; 
+int[] duration = new int [10];  //per gesture (duration per state)
+int[] Tmin = new int[10]; //per shape (Tmin für jedes State)
+Tmax[0]=0;
+int[] Tmin = new int[10];
+Tmin[0]=100;
+int counter=0; //counter for number of frames per state
+cluster list;
+
+ sort FrameID;
+
+//für Startposition
+minD=distance.cluster[0];
+while cluster!=empty{ cluster als Liste gespeichert
+    int k=0;
+    double distance=calcDistance.cluster[k]; //euklidische Distanz
+
+    if (distance.cluster[k]<minD){
+        minD=distance;
+    }       
+}
+array.add(states,distance);
+int s=i; //s for states
+
+for each gesture per shape
+for int i=1, i<gesture per shape, i++{
+   int j=0
+   int k=0; // counter for cluster
+    while cluster!=empty{
+        double distance=calcDistance.cluster[k];
+
+        if (distance<minD){
+            minD=distance;
+        } 
+        k++;      
+    }
+    array.add(states,distance);
+    if (s=k){
+        counter++;
+    }
+    else{
+        array.add(duration, counter) //next state
+
+        if(duration[j]<Tmin[j]){
+            Tmin.replace(Tmin[j],counter);
+        }
+
+        if(duration[j]>Tmax[j]){
+            Tmax.replace(Tmax[j],counter);
+        }
+        
+        counter = 1;
+        j++;
+    }
+
+}
+
+for (i=0, i<=Tmax.length){
+    Tmax.replace(Tmax[i],(Tmax[i].get)/frames);
+    Tmin.replace(Tmin[i],(Tmin[i].get)/frames);
+}
