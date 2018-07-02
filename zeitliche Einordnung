@@ -1,3 +1,4 @@
+input new gesture= point(double x, double y); //gesture ist Liste aus Punkten
 int frames = 30; //Nutzerabhängig
 int[] states = new int[100]; 
 int[] duration = new int [10];  //per gesture (duration per state)
@@ -6,54 +7,63 @@ Tmax[0]=0;
 int[] Tmin = new int[10];
 Tmin[0]=100;
 int counter=0; //counter for number of frames per state
-cluster list;
+cluster list; //besteht aus Punkten mit x,y
 
- sort FrameID;
+//sort FrameID;
+
+
+public static int GetEuclidianDistance(Point sample, Point a=cluster[i]) //xs=data sample
+
+{
+	return ((int)Math.Sqrt(Math.Pow(sample.X - a.X, 2) + Math.Pow(sample.Y - a.Y, 2)));
+}
 
 //für Startposition
 minD=distance.cluster[0];
-while cluster!=empty{ cluster als Liste gespeichert
-    int k=0;
-    double distance=calcDistance.cluster[k]; //euklidische Distanz
+while (cluster!=empty){   
+    int k=1; 
+    double distance=GetEucldianDistance.cluster[k]; //cluster Mittelpunkt
 
-    if (distance.cluster[k]<minD){
+    if (distance<minD){
         minD=distance;
     }       
 }
 array.add(states,distance);
 int s=i; //s for states
 
-for each gesture per shape
-for int i=1, i<gesture per shape, i++{
-   int j=0
-   int k=0; // counter for cluster
-    while cluster!=empty{
-        double distance=calcDistance.cluster[k];
+while !(list.shape.EndOfStream){
 
-        if (distance<minD){
-            minD=distance;
-        } 
-        k++;      
-    }
-    array.add(states,distance);
-    if (s=k){
-        counter++;
-    }
-    else{
-        array.add(duration, counter) //next state
+    for (int i=1, i<gesture per shape, i++){
+    int j=0
+    int k=0; // counter for cluster
+        while (!cluster.EndOfStream){
+            double distance=GetEucldianDistance.cluster[k];
 
-        if(duration[j]<Tmin[j]){
-            Tmin.replace(Tmin[j],counter);
+            if (distance<minD){
+                minD=distance;
+            } 
+            k++;      
+        }
+        array.add(states,distance);
+        if (s=k){
+            counter++;
+        }
+        else{
+            array.add(duration, counter) //next state
+
+            if(duration[j]<Tmin[j]){
+                Tmin.replace(Tmin[j],counter);
+            }
+
+            if(duration[j]>Tmax[j]){
+                Tmax.replace(Tmax[j],counter);
+            }
+            
+            counter = 1;
+            j++;
         }
 
-        if(duration[j]>Tmax[j]){
-            Tmax.replace(Tmax[j],counter);
-        }
-        
-        counter = 1;
-        j++;
     }
-
 }
 
 for (i=0, i<=Tmax.length){
